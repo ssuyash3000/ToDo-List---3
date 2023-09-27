@@ -35,22 +35,24 @@ export default function TodoCard({
       let newTodoList = todos.filter((todo) => todo.time !== time);
       setTodos([...newTodoList]);
       currTodo[0].status = "Done";
+      currTodo[0].completionTime = new Date().getTime();
       setDoneTodos((prevState) => [...prevState, currTodo[0]]);
     } else {
       let currTodo = doneTodos.filter((todo) => todo.time === time);
       let newTodoList = doneTodos.filter((todo) => todo.time !== time);
       setDoneTodos([...newTodoList]);
       currTodo[0].status = "Not Done";
+      currTodo[0].completionTime = null;
       setTodos((prevState) => [...prevState, currTodo[0]]);
     }
   };
   const handleDelete = (status, time) => {
     if (status === "Not Done") {
-      let currTodo = todos.filter((todo) => todo.time === time);
+      //let currTodo = todos.filter((todo) => todo.time === time);
       let newTodoList = todos.filter((todo) => todo.time !== time);
       setTodos([...newTodoList]);
     } else {
-      let currTodo = doneTodos.filter((todo) => todo.time === time);
+      //let currTodo = doneTodos.filter((todo) => todo.time === time);
       let newTodoList = doneTodos.filter((todo) => todo.time !== time);
       setDoneTodos([...newTodoList]);
     }
@@ -59,6 +61,9 @@ export default function TodoCard({
     <li className={styles.todoCard}>
       <h3>Task - {todo.text}</h3>
       <h4>Added At - {timeFormatter(todo.time)}</h4>
+      {(todo.completionTime != null && (
+        <h4>Competed At - {timeFormatter(todo.completionTime)}</h4>
+      )) || <h4>Not Completed Yet</h4>}
       <div className={styles.btnCtn}>
         <button
           className={styles.status}

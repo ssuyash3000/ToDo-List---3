@@ -9,6 +9,7 @@ export default function AddTodo(props) {
       text: textTodo.current.value,
       time: new Date().getTime(),
       status: "Not Done",
+      completionTime: null,
     };
     props.setTodos((prevState) => [...prevState, newTodo]);
     textTodo.current.value = "";
