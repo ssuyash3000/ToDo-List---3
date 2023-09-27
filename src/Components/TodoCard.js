@@ -1,3 +1,4 @@
+import styles from "../Style/TodoCard.module.css";
 export default function TodoCard({ todo, index }) {
   const timeFormatter = (timeinMilli) => {
     // Create a new Date object using the timestamp
@@ -23,9 +24,9 @@ export default function TodoCard({ todo, index }) {
     return formattedTime;
   };
   return (
-    <div className="todoCard">
-      <h3>todo.text</h3>
-      <h4>{timeFormatter(todo.time)}</h4>
-    </div>
+    <li className={styles.todoCard}>
+      <h3>{todo.text}</h3>
+      <h4>Added At - {timeFormatter(todo.time)}</h4>
+    </li>
   );
 }

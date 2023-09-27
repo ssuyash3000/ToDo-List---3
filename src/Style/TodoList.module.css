@@ -1,0 +1,12 @@
+.todoList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 5%;
+}
+.todoList h1 {
+  margin: 0;
+  margin-left: -1%;
+}

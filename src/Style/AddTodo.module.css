@@ -4,6 +4,9 @@
   margin: 5%;
   align-items: flex-start;
 }
+.todoForm label {
+  font-size: xx-large;
+}
 .todoForm label,
 input {
   margin-bottom: 2%;
@@ -33,5 +36,4 @@ input {
   background-color: aqua;
   cursor: pointer;
   text-decoration: underline;
-  
 }
