@@ -8,6 +8,7 @@ export default function AddTodo(props) {
     let newTodo = {
       text: textTodo.current.value,
       time: new Date().getTime(),
+      status: "Not Done",
     };
     props.setTodos((prevState) => [...prevState, newTodo]);
     textTodo.current.value = "";

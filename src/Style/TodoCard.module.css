@@ -12,3 +12,25 @@ h4 {
 .todoCard h3 {
   font-weight: 500;
 }
+
+.todoCard .btnCtn {
+  margin-left: 0%;
+  display: flex;
+}
+.todoCard .btnCtn button {
+  margin: 5%;
+  margin-left: 0%;
+  border-bottom-left-radius: 20%;
+  border-top-right-radius: 20%;
+  border-bottom: dotted;
+}
+.todoCard .btnCtn .status {
+  background-color: rgb(182, 199, 248);
+}
+.todoCard .btnCtn .delete {
+  background-color: rgb(235, 102, 102);
+}
+.todoCard .btnCtn button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
