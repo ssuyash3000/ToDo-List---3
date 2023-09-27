@@ -15,3 +15,23 @@ input {
   border-top-right-radius: 10%;
   border-bottom: dotted;
 }
+
+.todoForm button {
+  padding: 1rem;
+  font-size: large;
+  border-bottom-left-radius: 10%;
+  border-top-right-radius: 10%;
+  border-bottom: dotted;
+  background-color: aqua;
+}
+.todoForm button:hover {
+  padding: 1rem;
+  font-size: large;
+  border-bottom-left-radius: 10%;
+  border-top-right-radius: 10%;
+  border-bottom: dotted;
+  background-color: aqua;
+  cursor: pointer;
+  text-decoration: underline;
+  
+}
