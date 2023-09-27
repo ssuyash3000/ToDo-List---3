@@ -1,7 +1,6 @@
 import styles from "../Style/TodoCard.module.css";
 export default function TodoCard({
   todo,
-
   todos,
   setDoneTodos,
   setTodos,
@@ -45,6 +44,17 @@ export default function TodoCard({
       setTodos((prevState) => [...prevState, currTodo[0]]);
     }
   };
+  const handleDelete = (status, time) => {
+    if (status === "Not Done") {
+      let currTodo = todos.filter((todo) => todo.time === time);
+      let newTodoList = todos.filter((todo) => todo.time !== time);
+      setTodos([...newTodoList]);
+    } else {
+      let currTodo = doneTodos.filter((todo) => todo.time === time);
+      let newTodoList = doneTodos.filter((todo) => todo.time !== time);
+      setDoneTodos([...newTodoList]);
+    }
+  };
   return (
     <li className={styles.todoCard}>
       <h3>Task - {todo.text}</h3>
@@ -57,7 +67,13 @@ export default function TodoCard({
           }}>
           {todo.status === "Not Done" ? "Done" : "Not Done"}
         </button>
-        <button className={styles.delete}>Delete</button>
+        <button
+          className={styles.delete}
+          onClick={() => {
+            handleDelete(todo.status, todo.time);
+          }}>
+          Delete
+        </button>
       </div>
     </li>
   );
