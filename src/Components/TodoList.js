@@ -1,6 +1,6 @@
 import TodoCard from "./TodoCard";
 import styles from "../Style/TodoList.module.css";
-import { useEffect } from "react";
+
 export default function TodoList(props) {
   let cmp = (a, b) => {
     return a.time - b.time;

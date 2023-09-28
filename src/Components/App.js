@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     addTodoToLS();
-  }, [todos, doneTodos]);
+  });
 
   const handleResetButton = () => {
     setTodos([]);
