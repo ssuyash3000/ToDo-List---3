@@ -1,8 +1,9 @@
 .todoForm {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 5%;
   align-items: flex-start;
+  margin-top: 0;
 }
 .todoForm label {
   font-size: xx-large;
@@ -10,6 +11,7 @@
 .todoForm label,
 input {
   margin-bottom: 2%;
+  margin-right: 2%;
 }
 .todoForm input {
   padding: 1rem;
@@ -20,20 +22,11 @@ input {
 }
 
 .todoForm button {
+  margin-left: 5%;
   padding: 1rem;
   font-size: large;
   border-bottom-left-radius: 10%;
   border-top-right-radius: 10%;
   border-bottom: dotted;
   background-color: aqua;
-}
-.todoForm button:hover {
-  padding: 1rem;
-  font-size: large;
-  border-bottom-left-radius: 10%;
-  border-top-right-radius: 10%;
-  border-bottom: dotted;
-  background-color: aqua;
-  cursor: pointer;
-  text-decoration: underline;
 }

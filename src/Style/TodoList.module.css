@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 5%;
+  margin-top: 0;
 }
 .todoListCtn .todoList {
   list-style-type: none;

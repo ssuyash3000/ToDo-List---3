@@ -4,18 +4,27 @@ import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 
 function App() {
-  let [todos, setTodos] = useState([]);
-  let [doneTodos, setDoneTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
+    return storedTodos || [];
+  });
+
+  const [doneTodos, setDoneTodos] = useState(() => {
+    const storedDoneTodos = JSON.parse(localStorage.getItem("doneTodos"));
+    return storedDoneTodos || [];
+  });
+
+  const addTodoToLS = () => {
+    localStorage.setItem("todos", JSON.stringify([...todos]));
+    localStorage.setItem("doneTodos", JSON.stringify([...doneTodos]));
+  };
 
   useEffect(() => {
-    let cmp = (a, b) => {
-      return a.time - b.time;
-    };
-    setTodos([...todos.sort(cmp)]);
-    setDoneTodos([...doneTodos.sort(cmp)]);
+    addTodoToLS();
   }, [todos, doneTodos]);
   return (
     <div className="App">
+      <button className="reset-btn">Reset</button>
       <AddTodo setTodos={setTodos} />
       <TodoList
         todos={todos}

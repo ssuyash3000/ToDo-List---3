@@ -1,4 +1,22 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
-
+button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.App .reset-btn {
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-bottom-left-radius: 20%;
+  border-top-right-radius: 20%;
+  border-bottom: dotted;
+  width: 30%;
+  height: 5%;
+  background-color: lightcoral;
+}
+.App .reset-btn:hover {
+  background-color: red;
+}

@@ -30,7 +30,3 @@ h4 {
 .todoCard .btnCtn .delete {
   background-color: rgb(235, 102, 102);
 }
-.todoCard .btnCtn button:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
