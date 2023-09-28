@@ -22,9 +22,16 @@ function App() {
   useEffect(() => {
     addTodoToLS();
   }, [todos, doneTodos]);
+
+  const handleResetButton = () => {
+    setTodos([]);
+    setDoneTodos([]);
+  };
   return (
     <div className="App">
-      <button className="reset-btn">Reset</button>
+      <button className="reset-btn" onClick={handleResetButton}>
+        Reset
+      </button>
       <AddTodo setTodos={setTodos} />
       <TodoList
         todos={todos}
