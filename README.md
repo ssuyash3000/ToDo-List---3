@@ -1,5 +1,7 @@
 # Todo List
 
+![assignment details - problem statement](image.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 To run this project on your local machine execute following commands on the terminal inside project directory
