@@ -1,20 +1,24 @@
 .App {
   text-align: left;
+  margin-top: 5%;
+}
+.App .feature-ctn {
+  display: flex;
+
+  flex-wrap: wrap;
 }
 button:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 .App .reset-btn {
-  margin-left: 5%;
-  margin-top: 5%;
   margin-bottom: 2rem;
-  padding: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   border-bottom-left-radius: 20%;
   border-top-right-radius: 20%;
   border-bottom: dotted;
-  width: 30%;
-  height: 5%;
+  width: max-content;
   background-color: lightcoral;
 }
 .App .reset-btn:hover {

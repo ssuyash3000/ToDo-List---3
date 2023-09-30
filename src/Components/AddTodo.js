@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import styles from "../Style/AddTodo.module.css";
 export default function AddTodo(props) {
   let textTodo = useRef();
-
+  useEffect(() => {
+    textTodo.current.focus();
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     let newTodo = {

@@ -29,10 +29,13 @@ function App() {
   };
   return (
     <div className="App">
-      <button className="reset-btn" onClick={handleResetButton}>
-        Reset
-      </button>
-      <AddTodo setTodos={setTodos} />
+      <div className="feature-ctn">
+        <AddTodo setTodos={setTodos} />
+        <button className="reset-btn" onClick={handleResetButton}>
+          Reset
+        </button>
+      </div>
+
       <TodoList
         todos={todos}
         doneTodos={doneTodos}
