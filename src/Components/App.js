@@ -1,27 +1,20 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import "../Style/App.css";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
-
+import useLocalStorage from "./useLocalStorage";
 function App() {
-  const [todos, setTodos] = useState(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos"));
-    return storedTodos || [];
-  });
+  const [todos, setTodos] = useLocalStorage("todos", []);
+  const [doneTodos, setDoneTodos] = useLocalStorage("doneTodos", []);
 
-  const [doneTodos, setDoneTodos] = useState(() => {
-    const storedDoneTodos = JSON.parse(localStorage.getItem("doneTodos"));
-    return storedDoneTodos || [];
-  });
+  // const addTodoToLS = () => {
+  //   localStorage.setItem("todos", JSON.stringify([...todos]));
+  //   localStorage.setItem("doneTodos", JSON.stringify([...doneTodos]));
+  // };
 
-  const addTodoToLS = () => {
-    localStorage.setItem("todos", JSON.stringify([...todos]));
-    localStorage.setItem("doneTodos", JSON.stringify([...doneTodos]));
-  };
-
-  useEffect(() => {
-    addTodoToLS();
-  });
+  // useEffect(() => {
+  //   addTodoToLS();
+  // });
 
   const handleResetButton = () => {
     setTodos([]);
