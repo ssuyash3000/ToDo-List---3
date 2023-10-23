@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styles from "../Style/AddTodo.module.css";
-export default function AddTodo(props) {
+export default function AddTodo({ addTodo }) {
   let textTodo = useRef();
   useEffect(() => {
     textTodo.current.focus();
@@ -13,7 +13,7 @@ export default function AddTodo(props) {
       status: "Not Done",
       completionTime: null,
     };
-    props.setTodos((prevState) => [...prevState, newTodo]);
+    addTodo(newTodo);
     textTodo.current.value = "";
   };
   return (

@@ -1,5 +1,5 @@
 import styles from "../Style/TodoCard.module.css";
-export default function TodoCard({ todo, todos, setTodos }) {
+export default function TodoCard({ todo, toggleTodo, removeTodo }) {
   const timeFormatter = (timeinMilli) => {
     // Create a new Date object using the timestamp
     const currentTime = new Date(timeinMilli);
@@ -23,25 +23,7 @@ export default function TodoCard({ todo, todos, setTodos }) {
     const formattedTime = `${formattedHours}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
     return formattedTime;
   };
-  const handleDone = (status, time) => {
-    if (status === "Not Done") {
-      let currTodo = todos.filter((todo) => todo.time === time);
-      let newTodoList = todos.filter((todo) => todo.time !== time);
-      currTodo[0].status = "Done";
-      currTodo[0].completionTime = new Date().getTime();
-      setTodos([...newTodoList, currTodo[0]]);
-    } else {
-      let currTodo = todos.filter((todo) => todo.time === time);
-      let newTodoList = todos.filter((todo) => todo.time !== time);
-      currTodo[0].status = "Not Done";
-      currTodo[0].completionTime = null;
-      setTodos([...newTodoList, currTodo[0]]);
-    }
-  };
-  const handleDelete = (status, time) => {
-    let newTodoList = todos.filter((todo) => todo.time !== time);
-    setTodos([...newTodoList]);
-  };
+
   return (
     <li className={styles.todoCard}>
       <h3>Task - {todo.text}</h3>
@@ -53,14 +35,14 @@ export default function TodoCard({ todo, todos, setTodos }) {
         <button
           className={styles.status}
           onClick={() => {
-            handleDone(todo.status, todo.time);
+            toggleTodo(todo.status, todo.time);
           }}>
           {todo.status === "Not Done" ? "Done" : "Not Done"}
         </button>
         <button
           className={styles.delete}
           onClick={() => {
-            handleDelete(todo.status, todo.time);
+            removeTodo(todo.time);
           }}>
           Delete
         </button>
