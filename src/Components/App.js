@@ -5,20 +5,14 @@ import TodoList from "./TodoList";
 import useLocalStorage from "./useLocalStorage";
 function App() {
   const [todos, setTodos] = useLocalStorage("todos", []);
-  const [doneTodos, setDoneTodos] = useLocalStorage("doneTodos", []);
-
   // const addTodoToLS = () => {
   //   localStorage.setItem("todos", JSON.stringify([...todos]));
-  //   localStorage.setItem("doneTodos", JSON.stringify([...doneTodos]));
   // };
-
   // useEffect(() => {
   //   addTodoToLS();
   // });
-
   const handleResetButton = () => {
     setTodos([]);
-    setDoneTodos([]);
   };
   return (
     <div className="App">
@@ -28,13 +22,7 @@ function App() {
           Reset
         </button>
       </div>
-
-      <TodoList
-        todos={todos}
-        doneTodos={doneTodos}
-        setTodos={setTodos}
-        setDoneTodos={setDoneTodos}
-      />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 }

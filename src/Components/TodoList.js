@@ -5,35 +5,42 @@ export default function TodoList(props) {
   let cmp = (a, b) => {
     return a.time - b.time;
   };
-
+  let doneTodos = 0;
   return (
     <div className={styles.todoListCtn}>
-      {((props.todos.length !== 0 || props.doneTodos.length !== 0) && (
-        <h1>ToDos -</h1>
-      )) || <h4>Add Some ToDos</h4>}
+      {(props.todos.length !== 0 && <h1>ToDos -</h1>) || (
+        <h4>Add Some ToDos</h4>
+      )}
       <ul className={styles.todoList}>
         {props.todos.sort(cmp).map((todo, index) => {
-          return (
-            <TodoCard
-              key={index}
-              todo={todo}
-              todos={props.todos}
-              setDoneTodos={props.setDoneTodos}
-              setTodos={props.setTodos}
-            />
-          );
+          if (todo.status !== "Done") {
+            return (
+              <TodoCard
+                key={index}
+                todo={todo}
+                todos={props.todos}
+                setTodos={props.setTodos}
+              />
+            );
+          } else {
+            doneTodos++;
+            return "";
+          }
         })}
-        {props.doneTodos.length !== 0 && <hr />}
-        {props.doneTodos.sort(cmp).map((todo, index) => {
-          return (
-            <TodoCard
-              key={index}
-              todo={todo}
-              doneTodos={props.doneTodos}
-              setDoneTodos={props.setDoneTodos}
-              setTodos={props.setTodos}
-            />
-          );
+        {doneTodos !== 0 && <hr />}
+        {props.todos.sort(cmp).map((todo, index) => {
+          if (todo.status === "Done") {
+            return (
+              <TodoCard
+                key={index}
+                todo={todo}
+                todos={props.todos}
+                setTodos={props.setTodos}
+              />
+            );
+          } else {
+            return "";
+          }
         })}
       </ul>
     </div>

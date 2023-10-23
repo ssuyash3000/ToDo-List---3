@@ -1,11 +1,5 @@
 import styles from "../Style/TodoCard.module.css";
-export default function TodoCard({
-  todo,
-  todos,
-  setDoneTodos,
-  setTodos,
-  doneTodos,
-}) {
+export default function TodoCard({ todo, todos, setTodos }) {
   const timeFormatter = (timeinMilli) => {
     // Create a new Date object using the timestamp
     const currentTime = new Date(timeinMilli);
@@ -33,29 +27,20 @@ export default function TodoCard({
     if (status === "Not Done") {
       let currTodo = todos.filter((todo) => todo.time === time);
       let newTodoList = todos.filter((todo) => todo.time !== time);
-      setTodos([...newTodoList]);
       currTodo[0].status = "Done";
       currTodo[0].completionTime = new Date().getTime();
-      setDoneTodos((prevState) => [...prevState, currTodo[0]]);
+      setTodos([...newTodoList, currTodo[0]]);
     } else {
-      let currTodo = doneTodos.filter((todo) => todo.time === time);
-      let newTodoList = doneTodos.filter((todo) => todo.time !== time);
-      setDoneTodos([...newTodoList]);
+      let currTodo = todos.filter((todo) => todo.time === time);
+      let newTodoList = todos.filter((todo) => todo.time !== time);
       currTodo[0].status = "Not Done";
       currTodo[0].completionTime = null;
-      setTodos((prevState) => [...prevState, currTodo[0]]);
+      setTodos([...newTodoList, currTodo[0]]);
     }
   };
   const handleDelete = (status, time) => {
-    if (status === "Not Done") {
-      //let currTodo = todos.filter((todo) => todo.time === time);
-      let newTodoList = todos.filter((todo) => todo.time !== time);
-      setTodos([...newTodoList]);
-    } else {
-      //let currTodo = doneTodos.filter((todo) => todo.time === time);
-      let newTodoList = doneTodos.filter((todo) => todo.time !== time);
-      setDoneTodos([...newTodoList]);
-    }
+    let newTodoList = todos.filter((todo) => todo.time !== time);
+    setTodos([...newTodoList]);
   };
   return (
     <li className={styles.todoCard}>
