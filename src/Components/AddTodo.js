@@ -7,13 +7,13 @@ export default function AddTodo({ addTodo }) {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    let newTodo = {
-      text: textTodo.current.value,
-      time: new Date().getTime(),
-      status: "Not Done",
-      completionTime: null,
-    };
-    addTodo(newTodo);
+    // let newTodo = {
+    //   text: textTodo.current.value,
+    //   time: new Date().getTime(),
+    //   status: "Not Done",
+    //   completionTime: null,
+    // };
+    addTodo(textTodo.current.value);
     textTodo.current.value = "";
   };
   return (

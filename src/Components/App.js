@@ -14,7 +14,13 @@ function App() {
   const handleResetButton = () => {
     setTodos([]);
   };
-  const addTodo = (newTodo) => {
+  const addTodo = (text) => {
+    let newTodo = {
+      text,
+      time: new Date().getTime(),
+      status: "Not Done",
+      completionTime: null,
+    };
     setTodos((prevState) => [...prevState, newTodo]);
   };
   const toggleTodo = (time) => {
