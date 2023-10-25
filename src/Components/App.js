@@ -17,21 +17,23 @@ function App() {
   const addTodo = (newTodo) => {
     setTodos((prevState) => [...prevState, newTodo]);
   };
-  const toggleTodo = (status, time) => {
+  const toggleTodo = (time) => {
     setTodos((prevTodos) => {
-      const todoIndex = prevTodos.findIndex((todo) => {
-        return time === todo.time;
+      const updatedTodos = prevTodos.map((todo) => {
+        if (time === todo.time) {
+          return {
+            ...todo,
+            status: todo.status === "Not Done" ? "Done" : "Not Done",
+            completionTime:
+              todo.status === "Not Done" ? new Date().getTime() : null,
+          };
+        }
+        return todo;
       });
-      if (status === "Not Done") {
-        prevTodos[todoIndex].status = "Done";
-        prevTodos[todoIndex].completionTime = new Date().getTime();
-      } else {
-        prevTodos[todoIndex].status = "Not Done";
-        prevTodos[todoIndex].completionTime = null;
-      }
-      return [...prevTodos];
+      return updatedTodos;
     });
   };
+
   const removeTodo = (time) => {
     let newTodoList = todos.filter((todo) => todo.time !== time);
     setTodos([...newTodoList]);

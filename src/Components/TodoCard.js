@@ -35,7 +35,7 @@ export default function TodoCard({ todo, toggleTodo, removeTodo }) {
         <button
           className={styles.status}
           onClick={() => {
-            toggleTodo(todo.status, todo.time);
+            toggleTodo(todo.time);
           }}>
           {todo.status === "Not Done" ? "Done" : "Not Done"}
         </button>
