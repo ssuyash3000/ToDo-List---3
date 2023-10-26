@@ -38,7 +38,6 @@ export default function TodoCard({ todo }) {
         <button
           className={styles.status}
           onClick={() => {
-            // toggleTodo(todo.time);
             dispatch(toggleTodo(todo.time));
           }}>
           {todo.status === "Not Done" ? "Done" : "Not Done"}
@@ -46,7 +45,6 @@ export default function TodoCard({ todo }) {
         <button
           className={styles.delete}
           onClick={() => {
-            // removeTodo(todo.time);
             dispatch(removeTodo(todo.time));
           }}>
           Delete

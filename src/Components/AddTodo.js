@@ -10,13 +10,6 @@ export default function AddTodo() {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // let newTodo = {
-    //   text: textTodo.current.value,
-    //   time: new Date().getTime(),
-    //   status: "Not Done",
-    //   completionTime: null,
-    // };
-    // addTodo(textTodo.current.value);
     dispatch(addTodo(textTodo.current.value));
     textTodo.current.value = "";
   };

@@ -15,14 +15,7 @@ export default function TodoList() {
       <ul className={styles.todoList}>
         {todos.sort(cmp).map((todo, index) => {
           if (todo.status !== "Done") {
-            return (
-              <TodoCard
-                key={index}
-                todo={todo}
-                // removeTodo={removeTodo}
-                // toggleTodo={toggleTodo}
-              />
-            );
+            return <TodoCard key={index} todo={todo} />;
           } else {
             doneTodos++;
             return "";
@@ -31,14 +24,7 @@ export default function TodoList() {
         {doneTodos !== 0 && <hr />}
         {todos.sort(cmp).map((todo, index) => {
           if (todo.status === "Done") {
-            return (
-              <TodoCard
-                key={index}
-                todo={todo}
-                // removeTodo={removeTodo}
-                // toggleTodo={toggleTodo}
-              />
-            );
+            return <TodoCard key={index} todo={todo} />;
           } else {
             return "";
           }
