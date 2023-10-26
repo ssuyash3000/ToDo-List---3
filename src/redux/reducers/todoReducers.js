@@ -1,4 +1,9 @@
-import { TOGGLE_TODO, ADD_TODO, REMOVE_TODO } from "../actions/todoActions";
+import {
+  TOGGLE_TODO,
+  ADD_TODO,
+  REMOVE_TODO,
+  RESET_TODOS,
+} from "../actions/todoActions";
 
 const initialState = {
   todos: [
@@ -22,7 +27,7 @@ export function todoReducer(state = initialState, action) {
     case ADD_TODO:
       return {
         ...state,
-        todo: [
+        todos: [
           ...state.todos,
           {
             text: action.text,

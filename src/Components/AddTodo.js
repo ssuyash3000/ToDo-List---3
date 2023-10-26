@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import styles from "../Style/AddTodo.module.css";
-export default function AddTodo({ addTodo }) {
+import { useDispatch } from "react-redux";
+import { addTodo } from "../redux/actions/todoActions";
+export default function AddTodo() {
   let textTodo = useRef();
   useEffect(() => {
     textTodo.current.focus();
   }, []);
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     // let newTodo = {
@@ -13,7 +16,8 @@ export default function AddTodo({ addTodo }) {
     //   status: "Not Done",
     //   completionTime: null,
     // };
-    addTodo(textTodo.current.value);
+    // addTodo(textTodo.current.value);
+    dispatch(addTodo(textTodo.current.value));
     textTodo.current.value = "";
   };
   return (
