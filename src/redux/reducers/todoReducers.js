@@ -1,4 +1,4 @@
-import { TOGGLE_TODO, ADD_TODO } from "../actions/todoActions";
+import { TOGGLE_TODO, ADD_TODO, REMOVE_TODO } from "../actions/todoActions";
 
 const initialState = {
   todos: [
@@ -47,6 +47,12 @@ export function todoReducer(state = initialState, action) {
           return todo;
         }),
       };
+    case REMOVE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter(({ time }) => time !== action.time),
+      };
+
     default:
       return state;
   }
