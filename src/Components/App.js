@@ -3,7 +3,7 @@ import "../Style/App.css";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 // import useLocalStorage from "./useLocalStorage";
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import { todoStore } from "../redux/store";
 import { resetTodos } from "../redux/actions/todoActions";
 function App() {
