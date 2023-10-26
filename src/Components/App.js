@@ -3,6 +3,8 @@ import "../Style/App.css";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 import useLocalStorage from "./useLocalStorage";
+import { Provider } from "react-redux";
+import { todoStore } from "../redux/store";
 function App() {
   const [todos, setTodos] = useLocalStorage("todos", []);
   // const addTodoToLS = () => {
@@ -46,13 +48,19 @@ function App() {
   };
   return (
     <div className="App">
-      <div className="feature-ctn">
-        <AddTodo addTodo={addTodo} />
-        <button className="reset-btn" onClick={handleResetButton}>
-          Reset
-        </button>
-      </div>
-      <TodoList todos={todos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
+      <Provider store={todoStore}>
+        <div className="feature-ctn">
+          <AddTodo addTodo={addTodo} />
+          <button className="reset-btn" onClick={handleResetButton}>
+            Reset
+          </button>
+        </div>
+        <TodoList
+          // todos={todos}
+          toggleTodo={toggleTodo}
+          removeTodo={removeTodo}
+        />
+      </Provider>
     </div>
   );
 }

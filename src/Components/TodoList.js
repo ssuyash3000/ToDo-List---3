@@ -1,7 +1,10 @@
 import TodoCard from "./TodoCard";
 import styles from "../Style/TodoList.module.css";
+import { useSelector } from "react-redux";
 
-export default function TodoList({ todos, toggleTodo, removeTodo }) {
+export default function TodoList({ toggleTodo, removeTodo }) {
+  // const todos = store.getState().todos; // -> not recommended
+  const todos = useSelector((state) => state.todos); // -> recommended way
   let cmp = (a, b) => {
     return a.time - b.time;
   };
