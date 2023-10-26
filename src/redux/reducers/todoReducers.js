@@ -52,7 +52,11 @@ export function todoReducer(state = initialState, action) {
         ...state,
         todos: state.todos.filter(({ time }) => time !== action.time),
       };
-
+    case RESET_TODOS:
+      return {
+        ...state,
+        todos: [],
+      };
     default:
       return state;
   }
