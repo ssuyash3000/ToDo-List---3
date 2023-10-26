@@ -1,4 +1,4 @@
-import { TOGGLE_TODO } from "../actions/todoActions";
+import { TOGGLE_TODO, ADD_TODO } from "../actions/todoActions";
 
 const initialState = {
   todos: [],
@@ -23,7 +23,7 @@ export function todoReducer(state = initialState, action) {
       return {
         ...state,
         todos: state.todos.map((todo) => {
-          if (time === todo.time) {
+          if (action.time === todo.time) {
             return {
               ...todo,
               status: todo.status === "Not Done" ? "Done" : "Not Done",
