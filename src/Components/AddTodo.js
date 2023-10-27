@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import styles from "../Style/AddTodo.module.css";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/actions/todoActions";
+import { todoActions } from "../redux/reducers/todoReducers";
+// import { addTodo } from "../redux/actions/todoActions";
 export default function AddTodo() {
   let textTodo = useRef();
   useEffect(() => {
@@ -10,7 +11,8 @@ export default function AddTodo() {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTodo(textTodo.current.value));
+    // dispatch(addTodo(textTodo.current.value));
+    dispatch(todoActions.add(textTodo.current.value));
     textTodo.current.value = "";
   };
   return (

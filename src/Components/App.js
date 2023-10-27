@@ -5,10 +5,11 @@ import TodoList from "./TodoList";
 // import useLocalStorage from "./useLocalStorage";
 import { Provider } from "react-redux";
 import { todoStore } from "../redux/store";
-import { resetTodos } from "../redux/actions/todoActions";
+// import { resetTodos } from "../redux/actions/todoActions";
+import { todoActions } from "../redux/reducers/todoReducers";
 function App() {
   const handleResetButton = () => {
-    todoStore.dispatch(resetTodos());
+    todoStore.dispatch(todoActions.reset());
   };
 
   return (

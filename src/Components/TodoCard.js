@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import styles from "../Style/TodoCard.module.css";
-import { removeTodo, toggleTodo } from "../redux/actions/todoActions";
+// import { removeTodo, toggleTodo } from "../redux/actions/todoActions";
+import { todoActions } from "../redux/reducers/todoReducers";
 export default function TodoCard({ todo }) {
   const dispatch = useDispatch();
   const timeFormatter = (timeinMilli) => {
@@ -38,14 +39,16 @@ export default function TodoCard({ todo }) {
         <button
           className={styles.status}
           onClick={() => {
-            dispatch(toggleTodo(todo.time));
+            // dispatch(toggleTodo(todo.time));
+            dispatch(todoActions.toggle(todo.time));
           }}>
           {todo.status === "Not Done" ? "Done" : "Not Done"}
         </button>
         <button
           className={styles.delete}
           onClick={() => {
-            dispatch(removeTodo(todo.time));
+            // dispatch(removeTodo(todo.time));
+            dispatch(todoActions.remove(todo.time));
           }}>
           Delete
         </button>

@@ -1,7 +1,8 @@
-import {createStore} from "redux";
+// import {createStore} from "redux";
 import { todoReducer } from "./reducers/todoReducers";
+import { configureStore } from "@reduxjs/toolkit";
 
-export const todoStore = createStore(todoReducer);
+// export const todoStore = createStore(todoReducer);
 
 //Note - createStore() method is corssed out as it has been deprecated by the redux team
 //Redux team now suggets to use redux toolkit instead of raw redux
@@ -9,3 +10,9 @@ export const todoStore = createStore(todoReducer);
 
 //Note - It is suggested to create only one store file, but it is not mandatory.
 //Multiple stores in different files can also be created if required.
+
+export const todoStore = configureStore({
+  reducer: {
+    todoReducer,
+  },
+});
